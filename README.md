@@ -1,6 +1,10 @@
+---
+typora-root-url: ./
+---
+
 # Computer_Vision_notebook
 
-![title](/pic/title.jpg)
+![title](pic/title.jpg)
 
 It's a notebook of Computer Vision which is instructed by Prof. Dr.-Ing. Andreas Geiger in 2021.
 
@@ -449,23 +453,25 @@ Class link: [youtube](https://www.youtube.com/playlist?list=PL05umP7R6ij35L2MHGz
 ### 2.1 Primitives and Transformations
 
 - Geometric primitives are the basic building blocks used to describe 3D shapes
-- In this unit, we introduce points, lines and planes
+- In this unit, we introduce **points, lines and planes**
 - Furthermore, the most basic transformations are discussed
-- This unit covers the topics of the Szeliski book, chapter 2.1
+- This unit covers the topics of [the Szeliski book](https://szeliski.org/Book/), chapter 2.1
 - A more exhaustive introduction can be found in the book:
   Hartley and Zisserman: Multiple View Geometry in Computer Vision
 
 #### 2D Points
 
-2D points can be written in inhomogeneous coordinates as $x=\begin{pmatrix}x\\y\end{pmatrix}\in \mathbb{R}^2$, or in homogeneous coordinates as $\tilde{x}=\begin{pmatrix}\tilde{x}\\\tilde{y}\\\tilde{w}\end{pmatrix}\in \mathbb{P}^2$, where $\mathbb{P}^2=\mathbb{R}^3\setminus \left \{  0,0,0\right \}$ is called projective space.
+2D points can be written in inhomogeneous coordinates as $\mathrm{x}=\begin{pmatrix}x\\y\end{pmatrix}\in \mathbb{R}^2$, or in homogeneous coordinates as $\tilde{\mathrm{x}}=\begin{pmatrix}\tilde{x}\\\tilde{y}\\\tilde{w}\end{pmatrix}\in \mathbb{P}^2$, where $\mathbb{P}^2=\mathbb{R}^3\setminus \left \{  0,0,0\right \}$ is called projective space.
+
+A tilde symbol denotes a homogeneous coordinate.
 
 **Remark**: Homogeneous vectors that differ only by scale are considered equivalent and define an equivalence class. 👉Homogeneous vectors are defined only up to scale.
 
-An inhomogeneous vector x is converted to a homogeneous vector x as follows $\tilde{x}=\begin{pmatrix}\tilde{x}\\\tilde{y}\\\tilde{w}\end{pmatrix}=\begin{pmatrix}x\\y\\1\end{pmatrix}=\begin{pmatrix}x\\1\end{pmatrix}=\bar{x}$
+An inhomogeneous vector x is converted to a homogeneous vector x as follows $\tilde{\mathrm{x}}=\begin{pmatrix}\tilde{x}\\\tilde{y}\\\tilde{w}\end{pmatrix}=\begin{pmatrix}x\\y\\1\end{pmatrix}=\begin{pmatrix}\mathrm{x}\\1\end{pmatrix}=\bar{\mathrm{x}}$
 
-with augmented vector $\bar{x}$.To convert in the opposite direction we divide by $\tilde{w}$ : $\bar{x}=\begin{pmatrix}x\\1\end{pmatrix}=\begin{pmatrix}x\\y\\1\end{pmatrix}=\frac{1}{\tilde{w}}\tilde{x}=\frac{1}{\tilde{w}}\begin{pmatrix}\tilde{x}\\\tilde{y}\\\tilde{w}\end{pmatrix}=\begin{pmatrix}\frac{\tilde{x}}{\tilde{w}}\\\frac{\tilde{y}}{\tilde{w}}\\1\end{pmatrix}$
+with augmented vector $\bar{\mathrm{x}}$. To convert in the opposite direction we divide by $\tilde{w}$ : $\bar{\mathrm{x}}=\begin{pmatrix}\mathrm{x}\\1\end{pmatrix}=\begin{pmatrix}x\\y\\1\end{pmatrix}=\frac{1}{\tilde{w}}\tilde{\mathrm{x}}=\frac{1}{\tilde{w}}\begin{pmatrix}\tilde{x}\\\tilde{y}\\\tilde{w}\end{pmatrix}=\begin{pmatrix}\frac{\tilde{x}}{\tilde{w}}\\\frac{\tilde{y}}{\tilde{w}}\\1\end{pmatrix}$
 
-Homogeneous points whose last element is $\tilde{w}=0$ are called ideal points or points at infinity. These points can’t be represented with inhomogeneous coordinates!
+**Remark**: Homogeneous points whose last element is $\tilde{w}=0$ are called **ideal points** or **points at infinity**. These points can’t be represented with inhomogeneous coordinates!
 
 ![Snipaste_2022-02-15_01-13-19](pic/Snipaste_2022-02-15_01-13-19.png)
 
@@ -473,45 +479,889 @@ Homogeneous points whose last element is $\tilde{w}=0$ are called ideal points o
 
 ![Snipaste_2022-02-15_01-13-47](pic/Snipaste_2022-02-15_01-13-47.png)
 
+#### 2D Line
+
+2D lines can also be expressed using homogeneous coordinates $\tilde{\mathrm{I}}$
+
+![2022-02-19_10-33](pic/2022-02-19_10-33.png)
+
+#### Cross Product
+
+So the homogeneous coordinates allow us to represent infinity point and the relationships between points and lines.
+
+![2022-03-13_23-27](/pic/2022-03-13_23-27.png)
+
+#### 2D Line Arithmetic
+
+![2022-03-13_23-28](/pic/2022-03-13_23-28.png)
+
+![2022-03-13_23-28_1](/pic/2022-03-13_23-28_1.png)
+
+![2022-03-13_23-29](/pic/2022-03-13_23-29.png)
+
+#### 2D Conics
+
+![2022-03-14_11-54](/pic/2022-03-14_11-54.png)
+
+#### 3D Points
+
+![2022-03-14_11-55](/pic/2022-03-14_11-55.png)
+
+#### 3D Planes
+
+![2022-03-14_11-55_1](/pic/2022-03-14_11-55_1.png)
+
+![2022-03-14_11-55_2](/pic/2022-03-14_11-55_2.png)
+
+#### 3D Lines
+
+![2022-03-14_12-09](/pic/2022-03-14_12-09.png)
+
+#### 3D Quadircs
+
+![2022-03-14_12-09_1](/pic/2022-03-14_12-09_1.png)
+
+![2022-03-14_12-09_2](/pic/2022-03-14_12-09_2.png)
+
+#### 2D Transformations
+
+![2022-03-14_12-10](/pic/2022-03-14_12-10.png)
+
+![2022-03-14_12-10_1](/pic/2022-03-14_12-10_1.png)
+
+![2022-03-14_12-10_2](/pic/2022-03-14_12-10_2.png)
+
+![2022-03-14_12-11](/pic/2022-03-14_12-11.png)
+
+![2022-03-14_12-11_1](/pic/2022-03-14_12-11_1.png)
+
+#### 2D Transformations on Co-Vectors
+
+![2022-03-14_12-12](/pic/2022-03-14_12-12.png)
+
+#### Overview of 2D Transformations
+
+![2022-03-14_12-20](/pic/2022-03-14_12-20.png)
+
+#### Overview of 3D Transformations
+
+![2022-03-14_12-20_1](/pic/2022-03-14_12-20_1.png)
+
+#### Direct Linear Transform for Homography Estimation
+
+![2022-03-14_12-21](/pic/2022-03-14_12-21.png)
+
+![2022-03-14_12-21_1](/pic/2022-03-14_12-21_1.png)
+
+##### Application: Panorama Stitching
+
+![2022-03-14_12-24](/pic/2022-03-14_12-24.png)
+
 ### 2.2 Geometric Image Formation
+
+#### Origins of the Pinhole Camera
+
+![2022-03-14_12-26](/pic/2022-03-14_12-26.png)
+
+![2022-03-14_12-26_1](/pic/2022-03-14_12-26_1.png)
+
+![2022-03-14_12-28](/pic/2022-03-14_12-28.png)
+
+https://www.abelardomorell.net/camera-obscura
+
+![2022-03-14_12-29](/pic/2022-03-14_12-29.png)
+
+#### Projection Models
+
+![2022-03-14_12-29_1](/pic/2022-03-14_12-29_1.png)
+
+![2022-03-14_12-29_2](/pic/2022-03-14_12-29_2.png)
+
+##### Orthographic Projection
+
+![2022-03-14_12-32](/pic/2022-03-14_12-32.png)
+
+![2022-03-14_12-32_1](/pic/2022-03-14_12-32_1.png)
+
+##### Scaled Orthographic Projection
+
+![2022-03-14_12-33](/pic/2022-03-14_12-33.png)
+
+##### Perspective Projection
+
+![2022-03-14_12-48](/pic/2022-03-14_12-48.png)
+
+![2022-03-14_12-48_1](/pic/2022-03-14_12-48_1.png)
+
+![2022-03-14_12-48_2](/pic/2022-03-14_12-48_2.png)
+
+![2022-03-14_12-49](/pic/2022-03-14_12-49.png)
+
+#### Chaining Transformations
+
+![2022-03-14_12-54](/pic/2022-03-14_12-54.png)
+
+#### Full Rank Representation
+
+![2022-03-14_12-55](/pic/2022-03-14_12-55.png)
+
+#### Lens Distortion
+
+![2022-03-14_12-55_1](/pic/2022-03-14_12-55_1.png)
+
+![2022-03-14_12-55_2](/pic/2022-03-14_12-55_2.png)
 
 ### 2.3 Photometric Image Formation
 
+#### Photometric Image Formation
+
+![2022-03-14_12-58](/pic/2022-03-14_12-58.png)
+
+#### Rendering Equation
+
+![2022-03-14_12-58_1](/pic/2022-03-14_12-58_1.png)
+
+#### Diffuse and Specular Reflection
+
+![2022-03-14_12-59](/pic/2022-03-14_12-59.png)
+
+![2022-03-14_12-59_1](/pic/2022-03-14_12-59_1.png)
+
+#### BRDF Examples
+
+![2022-03-14_13-00](/pic/2022-03-14_13-00.png)
+
+#### Fresnel Effect
+
+![2022-03-14_13-00_1](/pic/2022-03-14_13-00_1.png)
+
+#### Global Illumination
+
+![2022-03-14_13-01](/pic/2022-03-14_13-01.png)
+
+#### Why Camera Lenses?
+
+![2022-03-14_13-03](/pic/2022-03-14_13-03.png)
+
+http://www.pauldebevec.com/Pinhole/
+
+![2022-03-14_13-03_1](/pic/2022-03-14_13-03_1.png)
+
+#### Optics
+
+![2022-03-14_13-04](/pic/2022-03-14_13-04.png)
+
+#### Thin Lens Model
+
+![2022-03-14_13-04_1](/pic/2022-03-14_13-04_1.png)
+
+#### Depth of Field (DOF)
+
+![2022-03-14_13-05](/pic/2022-03-14_13-05.png)
+
+![2022-03-14_13-05_1](/pic/2022-03-14_13-05_1.png)
+
+![2022-03-14_13-05_2](/pic/2022-03-14_13-05_2.png)
+
+![2022-03-14_13-05_3](/pic/2022-03-14_13-05_3.png)
+
+#### Chromatic Aberration
+
+![2022-03-14_13-06](/pic/2022-03-14_13-06.png)
+
+![2022-03-14_13-06_1](/pic/2022-03-14_13-06_1.png)
+
+#### Vignetting
+
+![2022-03-14_13-06_2](/pic/2022-03-14_13-06_2.png)
+
+![2022-03-14_13-07](/pic/2022-03-14_13-07.png)
+
 ### 2.4 Image Sensing Pipeline
+
+#### Image Sensing Pipeline
+
+![2022-03-14_13-09](/pic/2022-03-14_13-09.png)
+
+#### Shutter
+
+![2022-03-14_13-09_1](/pic/2022-03-14_13-09_1.png)
+
+#### Sensor
+
+![2022-03-14_13-10](/pic/2022-03-14_13-10.png)
+
+#### Color Filter Arrays
+
+![2022-03-14_13-10_1](/pic/2022-03-14_13-10_1.png)
+
+![2022-03-14_13-11](/pic/2022-03-14_13-11.png)
+
+![2022-03-14_13-11_1](/pic/2022-03-14_13-11_1.png)
+
+#### Color Spaces
+
+![2022-03-14_13-12](/pic/2022-03-14_13-12.png)
+
+#### Gamma Compression
+
+![2022-03-14_13-12_1](/pic/2022-03-14_13-12_1.png)
+
+#### Image Compression
+
+![2022-03-14_13-12_2](/pic/2022-03-14_13-12_2.png)
 
 ## L3 Structure-from-Motion
 
 ### 3.1 Preliminaries
 
+#### Camera Calibration
+
+![2022-03-14_13-25](/pic/2022-03-14_13-25.png)
+
+![2022-03-14_13-25_1](/pic/2022-03-14_13-25_1.png)
+
+![2022-03-14_13-26](/pic/2022-03-14_13-26.png)
+
+![2022-03-14_13-26_1](/pic/2022-03-14_13-26_1.png)
+
+![2022-03-14_13-26_2](/pic/2022-03-14_13-26_2.png)
+
+#### Feature Detection and Description
+
+##### Point Features
+
+![2022-03-14_13-27](/pic/2022-03-14_13-27.png)
+
+![2022-03-14_13-27_1](/pic/2022-03-14_13-27_1.png)
+
+##### Scale Invariant Feature Transform (SIFT)
+
+![2022-03-14_13-36](/pic/2022-03-14_13-36.png)
+
+![2022-03-14_13-37](/pic/2022-03-14_13-37.png)
+
+![2022-03-14_13-37_1](/pic/2022-03-14_13-37_1.png)
+
+![2022-03-14_13-38](/pic/2022-03-14_13-38.png)
+
+![2022-03-14_13-38_1](/pic/2022-03-14_13-38_1.png)
+
+![2022-03-14_13-39](/pic/2022-03-14_13-39.png)
+
 ### 3.2 Two-frame Structure-from-Motion
+
+#### Epipolar Geometry
+
+![2022-03-14_13-44](/pic/2022-03-14_13-44.png)
+
+![2022-03-14_13-44_1](/pic/2022-03-14_13-44_1.png)
+
+![2022-03-14_13-45](/pic/2022-03-14_13-45.png)
+
+![2022-03-14_13-45_1](/pic/2022-03-14_13-45_1.png)
+
+![2022-03-14_13-45_2](/pic/2022-03-14_13-45_2.png)
+
+##### Estimating the Epipolar Geometry
+
+![2022-03-14_13-47](/pic/2022-03-14_13-47.png)
+
+![2022-03-14_13-47_1](/pic/2022-03-14_13-47_1.png)
+
+##### Estimating the Epipolar Geometry with unknown Intrinsics
+
+![2022-03-14_13-49](/pic/2022-03-14_13-49.png)
+
+![2022-03-14_13-50](/pic/2022-03-14_13-50.png)
+
+#### Trianulation
+
+![2022-03-14_13-55](/pic/2022-03-14_13-55.png)
+
+![2022-03-14_13-55_1](/pic/2022-03-14_13-55_1.png)
+
+![2022-03-14_13-55_2](/pic/2022-03-14_13-55_2.png)
+
+##### Triangulation Uncertainty
+
+![2022-03-14_13-56](/pic/2022-03-14_13-56.png)
 
 ### 3.3 Factorization
 
+#### Orthographic Factorization
+
+![2022-03-14_13-57](/pic/2022-03-14_13-57.png)
+
+![2022-03-14_13-57_1](/pic/2022-03-14_13-57_1.png)
+
+![2022-03-14_13-57_2](/pic/2022-03-14_13-57_2.png)
+
+![2022-03-14_13-57_3](/pic/2022-03-14_13-57_3.png)
+
+![2022-03-14_13-57_4](/pic/2022-03-14_13-57_4.png)
+
+![2022-03-14_13-57_5](/pic/2022-03-14_13-57_5.png)
+
+![2022-03-14_13-58](/pic/2022-03-14_13-58.png)
+
+![2022-03-14_13-58_1](/pic/2022-03-14_13-58_1.png)
+
+![2022-03-14_13-58_2](/pic/2022-03-14_13-58_2.png)
+
+![2022-03-14_13-58_3](/pic/2022-03-14_13-58_3.png)
+
+Tomasi and Kanade: Shape and motion from image streams under orthography: a factorization method. IJCV, 1992.
+
+![2022-03-14_13-58_4](/pic/2022-03-14_13-58_4.png)
+
+##### Perspective Factorization
+
+![2022-03-14_14-00](/pic/2022-03-14_14-00.png)
+
 ### 3.4 Bundle Adjustment
+
+#### Bundle Adjustment
+
+![2022-03-14_14-01](/pic/2022-03-14_14-01.png)
+
+![2022-03-14_14-01_1](/pic/2022-03-14_14-01_1.png)
+
+![2022-03-14_14-01_2](/pic/2022-03-14_14-01_2.png)
+
+##### Challenges of Bundle Adjustment
+
+![2022-03-14_14-02](/pic/2022-03-14_14-02.png)
+
+#### Incremental Srtucture-from-Motion
+
+![2022-03-14_14-03](/pic/2022-03-14_14-03.png)
+
+##### Feature Extraction
+
+![2022-03-14_14-04](/pic/2022-03-14_14-04.png)
+
+##### Feature Matching & Geometric Veriﬁcation
+
+![2022-03-14_14-05](/pic/2022-03-14_14-05.png)
+
+##### Initialization
+
+![2022-03-14_14-06](/pic/2022-03-14_14-06.png)
+
+##### Image Registration
+
+![2022-03-14_14-16](/pic/2022-03-14_14-16.png)
+
+##### Triangulation
+
+![2022-03-14_14-17](/pic/2022-03-14_14-17.png)
+
+##### Bundle Adjustment & Outlier Filtering
+
+![2022-03-14_14-18](/pic/2022-03-14_14-18.png)
+
+### Results and Applications
+
+![2022-03-14_14-19](/pic/2022-03-14_14-19.png)
+
+![2022-03-14_14-19_1](/pic/2022-03-14_14-19_1.png)
+
+![2022-03-14_14-19_2](/pic/2022-03-14_14-19_2.png)
+
+![2022-03-14_14-20](/pic/2022-03-14_14-20.png)
+
+![2022-03-14_14-20_1](/pic/2022-03-14_14-20_1.png)
+
+![2022-03-14_14-20_2](/pic/2022-03-14_14-20_2.png)
 
 ## L4 Stereo Reconstruction
 
 ### 4.1 Preliminaries
 
+#### How to recover 3D from an image?
+
+![2022-03-14_14-23](/pic/2022-03-14_14-23.png)
+
+![2022-03-14_14-25](/pic/2022-03-14_14-25.png)
+
+![2022-03-14_14-23_2](/pic/2022-03-14_14-23_2.png)
+
+![2022-03-14_14-24](/pic/2022-03-14_14-24.png)
+
+![2022-03-14_14-24_1](/pic/2022-03-14_14-24_1.png)
+
+#### Why Binocular Stereopsis?
+
+![2022-03-14_14-26](/pic/2022-03-14_14-26.png)
+
+![2022-03-14_14-27](/pic/2022-03-14_14-27.png)
+
+#### Two-View Stereo Matching
+
+![2022-03-14_14-27_1](/pic/2022-03-14_14-27_1.png)
+
+![2022-03-14_14-27_2](/pic/2022-03-14_14-27_2.png)
+
+#### 3D Reconstruction Pipeline
+
+![2022-03-14_14-28](/pic/2022-03-14_14-28.png)
+
+#### 3D Model
+
+![2022-03-14_14-28_1](/pic/2022-03-14_14-28_1.png)
+
+#### Epipolar Geometry
+
+![2022-03-14_14-31](/pic/2022-03-14_14-31.png)
+
+![2022-03-14_14-31_1](/pic/2022-03-14_14-31_1.png)
+
+#### Image Rectification
+
+![2022-03-14_14-34](/pic/2022-03-14_14-34.png)
+
+![2022-03-14_14-34_1](/pic/2022-03-14_14-34_1.png)
+
+![2022-03-14_14-34_2](/pic/2022-03-14_14-34_2.png)
+
+![2022-03-14_14-34_3](/pic/2022-03-14_14-34_3.png)
+
+![2022-03-14_14-34_4](/pic/2022-03-14_14-34_4.png)
+
+#### Calculating the Rectifying Rotation Matrix
+
+![2022-03-14_14-38](/pic/2022-03-14_14-38.png)
+
+#### Rectification Example
+
+![2022-03-14_14-39](/pic/2022-03-14_14-39.png)
+
+#### Disparity Estimation Example
+
+**Left**
+
+![2022-03-14_14-41](/pic/2022-03-14_14-41.png)
+
+**Right**
+
+![2022-03-14_14-41_1](/pic/2022-03-14_14-41_1.png)
+
+![2022-03-14_14-41_2](/pic/2022-03-14_14-41_2.png)
+
+#### Disparity to Depth
+
+![2022-03-14_14-42](/pic/2022-03-14_14-42.png)
+
 ### 4.2 Block Matching
+
+#### Correspondence Ambiguity
+
+![2022-03-14_14-43](/pic/2022-03-14_14-43.png)
+
+#### Similarity Metrics
+
+**Left**
+
+![2022-03-14_14-44](/pic/2022-03-14_14-44.png)
+
+**Right**
+
+![2022-03-14_14-46](/pic/2022-03-14_14-46.png)
+
+![2022-03-14_14-46_1](/pic/2022-03-14_14-46_1.png)
+
+![2022-03-14_14-46_2](/pic/2022-03-14_14-46_2.png)
+
+![2022-03-14_14-47](/pic/2022-03-14_14-47.png)
+
+#### Block Matching
+
+![2022-03-14_14-47_1](/pic/2022-03-14_14-47_1.png)
+
+##### Block Matching: Half Occlusions
+
+![2022-03-14_14-48](/pic/2022-03-14_14-48.png)
+
+![2022-03-14_14-48_1](/pic/2022-03-14_14-48_1.png)
+
+##### Block Matching: Assumption Violations
+
+**Left**
+
+![2022-03-14_14-49](/pic/2022-03-14_14-49.png)
+
+**Right**
+
+![2022-03-14_14-49_1](/pic/2022-03-14_14-49_1.png)
+
+**Left**
+
+![2022-03-14_14-51](/pic/2022-03-14_14-51.png)
+
+**Right**
+
+![2022-03-14_14-51_1](/pic/2022-03-14_14-51_1.png)
+
+##### Effect of Window Size
+
+![2022-03-14_14-52_1](/pic/2022-03-14_14-52_1.png)
+
+![2022-03-14_14-52](/pic/2022-03-14_14-52.png)
+
+![2022-03-14_14-53](/pic/2022-03-14_14-53.png)
+
+#### Left-Right Consistency Test
+
+![2022-03-14_14-53_1](/pic/2022-03-14_14-53_1.png)
 
 ### 4.3 Siamese Networks
 
+#### Siamese Networks for Stereo Matching
+
+![2022-03-14_14-54](/pic/2022-03-14_14-54.png)
+
+![2022-03-14_14-54_1](/pic/2022-03-14_14-54_1.png)
+
+![2022-03-14_14-54_2](/pic/2022-03-14_14-54_2.png)
+
+#### Training
+
+![2022-03-14_14-55](/pic/2022-03-14_14-55.png)
+
+![2022-03-14_14-55_1](/pic/2022-03-14_14-55_1.png)
+
+#### Loss Function
+
+![2022-03-14_14-56](/pic/2022-03-14_14-56.png)
+
+![2022-03-14_14-56_1](/pic/2022-03-14_14-56_1.png)
+
+#### Winner-takes-All Results
+
+![2022-03-14_14-56_2](/pic/2022-03-14_14-56_2.png)
+
+#### Semiglobal Matching Results
+
+![2022-03-14_14-57](/pic/2022-03-14_14-57.png)
+
+#### Runtime
+
+![2022-03-14_14-57_1](/pic/2022-03-14_14-57_1.png)
+
 ### 4.4 Spatial Regularization
 
+#### When will local matching fail?
+
+##### The Underlying Assumption
+
+![2022-03-14_14-58](/pic/2022-03-14_14-58.png)
+
+##### Similarity Constraint: Failure Cases
+
+![2022-03-14_14-58_1](/pic/2022-03-14_14-58_1.png)
+
+#### Spatial Regularization
+
+##### How does the real world look like?
+
+![2022-03-14_14-59](/pic/2022-03-14_14-59.png)
+
+##### Stereo MRF
+
+![2022-03-14_15-00](/pic/2022-03-14_15-00.png)
+
+##### Results
+
+Huang, Lee and Mumford: Statistics of Range Images. CVPR, 2000.
+
+![2022-03-14_15-00_1](/pic/2022-03-14_15-00_1.png)
+
+Güney and Geiger: Displets: Resolving stereo ambiguities using object knowledge. CVPR, 2015.
+
+![2022-03-14_15-00_2](/pic/2022-03-14_15-00_2.png)
+
 ### 4.5 End-to-End Learning
+
+#### DispNet
+
+![2022-03-14_15-10](/pic/2022-03-14_15-10.png)
+
+##### Synthetic Datasets
+
+![2022-03-14_15-11](/pic/2022-03-14_15-11.png)
+
+##### DispNet Results on KITTI Dataset
+
+![2022-03-14_15-14](/pic/2022-03-14_15-14.png)
+
+#### GC-Net
+
+![2022-03-14_15-14_1](/pic/2022-03-14_15-14_1.png)
+
+#### Stereo Mixture Density Networks (SMD-Nets)
+
+![2022-03-14_15-15](/pic/2022-03-14_15-15.png)
+
+![2022-03-14_15-15_1](/pic/2022-03-14_15-15_1.png)
+
+![2022-03-14_15-16](/pic/2022-03-14_15-16.png)
+
+![2022-03-14_15-16_1](/pic/2022-03-14_15-16_1.png)
+
+![2022-03-14_15-16_2](/pic/2022-03-14_15-16_2.png)
 
 ## L5 Probabilistic Graphical Models
 
 ### 5.1 Structured Prediction
 
+#### Block Matching Ambiguities
+
+![2022-03-14_15-22](/pic/2022-03-14_15-22.png)
+
+![2022-03-14_15-22_1](/pic/2022-03-14_15-22_1.png)
+
+#### How does the real world look like?
+
+![2022-03-14_15-22_2](/pic/2022-03-14_15-22_2.png)
+
+#### Spatial Regularization
+
+![2022-03-14_15-23](/pic/2022-03-14_15-23.png)
+
+#### Probabilistic Graphical Models
+
+![2022-03-14_15-23_1](/pic/2022-03-14_15-23_1.png)
+
+#### Structured Prediction
+
+![2022-03-14_15-24](/pic/2022-03-14_15-24.png)
+
+##### Supervised Learning
+
+![2022-03-14_15-24_1](/pic/2022-03-14_15-24_1.png)
+
+###### Classiﬁcation / Regression
+
+![2022-03-14_15-24_2](/pic/2022-03-14_15-24_2.png)
+
+###### Structured Prediction
+
+![2022-03-14_15-25](/pic/2022-03-14_15-25.png)
+
+#### Probabilistic Graphical Models
+
+![2022-03-14_15-27](/pic/2022-03-14_15-27.png)
+
+#### Overview
+
+![2022-03-14_15-28](/pic/2022-03-14_15-28.png)
+
+http://www.nowozin.net/sebastian/cvpr2012tutorial/
+
+http://www.cs.ucl.ac.uk/staff/d.barber/brml/
+
 ### 5.2 Markov Random Fields
+
+#### Probability Theory Recap
+
+![2022-03-14_15-30](/pic/2022-03-14_15-30.png)
+
+#### Markov Random Field
+
+![2022-03-14_15-30_1](/pic/2022-03-14_15-30_1.png)
+
+#### Undirected Graph
+
+![2022-03-14_15-31](/pic/2022-03-14_15-31.png)
+
+#### Properties of Markov Random Fields
+
+![2022-03-14_15-31_1](/pic/2022-03-14_15-31_1.png)
+
+![2022-03-14_15-31_2](/pic/2022-03-14_15-31_2.png)
+
+![2022-03-14_15-32](/pic/2022-03-14_15-32.png)
+
+![2022-03-14_15-32_1](/pic/2022-03-14_15-32_1.png)
+
+![2022-03-14_15-32_2](/pic/2022-03-14_15-32_2.png)
+
+#### Global Markov Property
+
+![2022-03-14_15-32_3](/pic/2022-03-14_15-32_3.png)
+
+#### Local Markov Property
+
+![2022-03-14_15-38](/pic/2022-03-14_15-38.png)
+
+##### Example
+
+![2022-03-14_15-38_1](/pic/2022-03-14_15-38_1.png)
+
+#### Hammersley-Clifford Theorem
+
+![2022-03-14_15-40](/pic/2022-03-14_15-40.png)
 
 ### 5.3 Factor Graphs
 
+#### MRF Factorization Ambiguities
+
+![2022-03-14_15-41](/pic/2022-03-14_15-41.png)
+
+#### Factor Graphs
+
+![2022-03-14_15-41_1](/pic/2022-03-14_15-41_1.png)
+
+![2022-03-14_15-42](/pic/2022-03-14_15-42.png)
+
+##### Examples
+
+![2022-03-14_15-42_1](/pic/2022-03-14_15-42_1.png)
+
+![2022-03-14_15-42_2](/pic/2022-03-14_15-42_2.png)
+
 ### 5.4 Belief Propagation
 
+#### Inference in Chain Structured Factor Graphs
+
+![2022-03-14_15-43](/pic/2022-03-14_15-43.png)
+
+![2022-03-14_15-43_1](/pic/2022-03-14_15-43_1.png)
+
+![2022-03-14_15-43_2](/pic/2022-03-14_15-43_2.png)
+
+#### Inference in Tree Structured Factor Graphs
+
+![2022-03-14_15-43_3](/pic/2022-03-14_15-43_3.png)
+
+![2022-03-14_15-44](/pic/2022-03-14_15-44.png)
+
+![2022-03-14_15-44_1](/pic/2022-03-14_15-44_1.png)
+
+![2022-03-14_15-45](/pic/2022-03-14_15-45.png)
+
+![2022-03-14_15-45_1](/pic/2022-03-14_15-45_1.png)
+
+#### Factor-to-Variable Messages
+
+![2022-03-14_15-46](/pic/2022-03-14_15-46.png)
+
+#### Variable-to-Factor Messages
+
+![2022-03-14_15-46_1](/pic/2022-03-14_15-46_1.png)
+
+![2022-03-14_15-46_2](/pic/2022-03-14_15-46_2.png)
+
+![2022-03-14_15-47](/pic/2022-03-14_15-47.png)
+
+![2022-03-14_15-47_1](/pic/2022-03-14_15-47_1.png)
+
+#### Comments
+
+![2022-03-14_15-47_2](/pic/2022-03-14_15-47_2.png)
+
+#### Sum-Product Algorithm
+
+![2022-03-14_15-48](/pic/2022-03-14_15-48.png)
+
+##### 1. Initialization
+
+![2022-03-14_15-48_1](/pic/2022-03-14_15-48_1.png)
+
+##### 2. Variable-to-Factor Message
+
+![2022-03-14_15-49](/pic/2022-03-14_15-49.png)
+
+##### 3. Factor-to-Variable Message (Sum-Product)
+
+![2022-03-14_15-50](/pic/2022-03-14_15-50.png)
+
+##### 5. Calculate Marginals
+
+![2022-03-14_15-50_1](/pic/2022-03-14_15-50_1.png)
+
+#### Log Representation
+
+![2022-03-14_15-51](/pic/2022-03-14_15-51.png)
+
+![2022-03-14_15-51_1](/pic/2022-03-14_15-51_1.png)
+
+#### Max-Product Algorithm
+
+##### Finding the maximal state: Max-Product
+
+![2022-03-14_15-52](/pic/2022-03-14_15-52.png)
+
+##### Example: Chain
+
+![2022-03-14_15-52_1](/pic/2022-03-14_15-52_1.png)
+
+![2022-03-14_15-53](/pic/2022-03-14_15-53.png)
+
+##### Max-Product Algorithm – Overview
+
+![2022-03-14_15-53_1](/pic/2022-03-14_15-53_1.png)
+
+#### Loopy Belief Propagation
+
+![2022-03-14_15-53_2](/pic/2022-03-14_15-53_2.png)
+
+![2022-03-14_15-54](/pic/2022-03-14_15-54.png)
+
+#### Summary
+
+##### Sum-Product Belief Propagation 
+
+![2022-03-14_15-55](/pic/2022-03-14_15-55.png)
+
+##### Max-Product Belief Propagation
+
+![2022-03-14_15-55_1](/pic/2022-03-14_15-55_1.png)
+
+##### Special Case: Pairwise MRF
+
+![2022-03-14_15-56](/pic/2022-03-14_15-56.png)
+
+![2022-03-14_15-56_1](/pic/2022-03-14_15-56_1.png)
+
+##### Readout
+
+![2022-03-14_15-56_2](/pic/2022-03-14_15-56_2.png)
+
+##### Algorithm Overview
+
+![2022-03-14_15-57](/pic/2022-03-14_15-57.png)
+
 ### 5.5 Examples
+
+#### Example 1: Vehicle Localization
+
+![2022-03-14_15-57_1](/pic/2022-03-14_15-57_1.png)
+
+![2022-03-14_15-58](/pic/2022-03-14_15-58.png)
+
+![2022-03-14_15-58_1](/pic/2022-03-14_15-58_1.png)
+
+![2022-03-14_15-58_2](/pic/2022-03-14_15-58_2.png)
+
+![2022-03-14_15-59](/pic/2022-03-14_15-59.png)
+
+![2022-03-14_15-59_1](/pic/2022-03-14_15-59_1.png)
+
+![2022-03-14_15-59_2](/pic/2022-03-14_15-59_2.png)
+
+#### Example 2: Image Denoising
+
+![2022-03-14_16-00](/pic/2022-03-14_16-00.png)
+
+![2022-03-14_16-00_1](/pic/2022-03-14_16-00_1.png)
+
+![2022-03-14_16-00_2](/pic/2022-03-14_16-00_2.png)
+
+![2022-03-14_16-00_3](/pic/2022-03-14_16-00_3.png)
+
+![2022-03-14_16-01](/pic/2022-03-14_16-01.png)
 
 ## L6 Applications of Graphical Models
 
