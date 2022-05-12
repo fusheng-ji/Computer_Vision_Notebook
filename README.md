@@ -473,6 +473,31 @@ Homogeneous points whose last element is $\tilde{w}=0$ are called ideal points o
 
 ![Snipaste_2022-02-15_01-13-47](pic/Snipaste_2022-02-15_01-13-47.png)
 
+#### 2D Lines
+
+2D lines can also be expressed using homogeneous coordinates $\tilde{I}=(a,b,c)^T$: $\left \{ \bar{x}| \tilde{I}^T\bar{x}=0\right\}\Leftrightarrow \left \{ x,y|ax+by+c=0\right\}$
+
+We can normalize $\tilde{I}$ so that $\tilde{I}=(n_x, n_y,d)^T=(\mathrm{n},d)^T$ with $\left \|\mathrm{n}  \right \|_2=1$. In this case, $\mathrm{n}$ is
+the normal vector perpendicular to the line and $d$ is its distance to the origin.
+
+An exception is the line at infinity $\tilde{I}_\infty=(0,0,1)^T$ which passes through all ideal points.
+
+![Snipaste_2022-02-16_14-36-09](pic/Snipaste_2022-02-16_14-36-09.png)
+
+##### Cross Product
+
+Cross product expressed as the product of a skew-symmetric matrix and a vector: 
+
+$a\times b = [a]\times b=\begin{bmatrix}0&-a_3&a_2\\a_3&0&-a_1\\-a_2&a_1&0\end{bmatrix}\begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix}=\begin{pmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{pmatrix}$
+
+**Remake:** In this course, we use squared brackets to distinguish matrices from vectors.
+
+![Snipaste_2022-02-16_16-48-51](pic/Snipaste_2022-02-16_16-48-51.png)
+
+##### 2D Line Arithmetic
+
+
+
 ### 2.2 Geometric Image Formation
 
 ### 2.3 Photometric Image Formation
