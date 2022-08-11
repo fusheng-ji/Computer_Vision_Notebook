@@ -1,7 +1,3 @@
----
-typora-root-url: ./
----
-
 # Computer_Vision_notebook
 
 ![title](pic/title.jpg)
